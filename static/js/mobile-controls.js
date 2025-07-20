@@ -54,19 +54,27 @@
     function handleJoystickStart(e) {
         e.preventDefault();
 
-        isDragging = true;
-
         const touch = e.touches[0];
         const rect = joystickArea.getBoundingClientRect();
 
+        // Set center point of joystick area
         startX = rect.left + rect.width / 2;
         startY = rect.top + rect.height / 2;
 
-        // Initial position - Set to center of joystick area instead of touch position
+        // Set initial touch position to be exactly at the center
+        // This ensures no movement until the user actually moves their finger
         currentX = startX;
         currentY = startY;
+        
+        // Now we're dragging
+        isDragging = true;
 
-        updateJoystickPosition();
+        // Update visuals
+        joystick.style.transform = 'translate(-50%, -50%)';
+        
+        // Ensure movement is zeroed out
+        moveDirection = { x: 0, y: 0 };
+        dispatchMoveEvent();
     }
 
     // Handle joystick movement
@@ -78,7 +86,10 @@
         currentX = touch.clientX;
         currentY = touch.clientY;
 
-        updateJoystickPosition();
+        // Only update if we're actually dragging
+        if (isDragging) {
+            updateJoystickPosition();
+        }
     }
 
     // Handle joystick release
@@ -99,6 +110,14 @@
 
     // Update joystick position and calculate direction
     function updateJoystickPosition() {
+        if (!isDragging) {
+            // If not dragging, make sure we don't move
+            moveDirection = { x: 0, y: 0 };
+            joystick.style.transform = 'translate(-50%, -50%)';
+            dispatchMoveEvent();
+            return;
+        }
+        
         const areaRect = joystickArea.getBoundingClientRect();
         const centerX = startX;
         const centerY = startY;
