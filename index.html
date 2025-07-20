@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tank Battle: Battlefield Commanders</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div id="score">Score: 0</div>
+        
+        <!-- Level Selection Screen -->
+        <div id="level-selection" class="screen">
+            <h1>TANK BATTLE</h1>
+            <h2>BATTLEFIELD COMMANDERS</h2>
+            <div class="level-buttons">
+                <button id="easy-btn" class="level-btn">Recruit</button>
+                <button id="medium-btn" class="level-btn">Veteran</button>
+                <button id="hard-btn" class="level-btn">Commander</button>
+            </div>
+        </div>
+        
+        <div id="game-over" class="screen hidden">
+            <h2>MISSION FAILED</h2>
+            <p id="final-score">Field Report: 0 Pts</p>
+            <button id="try-again">New Mission</button>
+            <button id="change-level">Change Rank</button>
+        </div>
+    </div>
+    
+    <script src="static/js/player.js"></script>
+    <script src="static/js/enemy.js"></script>
+    <script src="static/js/weapon.js"></script>
+    <script src="static/js/game.js"></script>
+</body>
+</html>
