@@ -62,9 +62,9 @@
         startX = rect.left + rect.width / 2;
         startY = rect.top + rect.height / 2;
 
-        // Initial position
-        currentX = touch.clientX;
-        currentY = touch.clientY;
+        // Initial position - Set to center of joystick area instead of touch position
+        currentX = startX;
+        currentY = startY;
 
         updateJoystickPosition();
     }
@@ -100,8 +100,8 @@
     // Update joystick position and calculate direction
     function updateJoystickPosition() {
         const areaRect = joystickArea.getBoundingClientRect();
-        const centerX = areaRect.left + areaRect.width / 2;
-        const centerY = areaRect.top + areaRect.height / 2;
+        const centerX = startX;
+        const centerY = startY;
 
         // Calculate distance from center
         let deltaX = currentX - centerX;
