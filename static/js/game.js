@@ -351,39 +351,19 @@ function checkCollisions() {
         )) {
             // Only solid obstacles (rocks and walls) block movement
             if (obstacle.type === 'rock' || obstacle.type === 'wall') {
-                // Move player away from obstacle
+                // Push player away from obstacle with fixed distance
                 const dx = player.position[0] - (obstacle.x + obstacle.width/2);
                 const dy = player.position[1] - (obstacle.y + obstacle.height/2);
                 const dist = Math.sqrt(dx*dx + dy*dy);
                 
                 if (dist > 0) {
-                    // Calculate push force
-                    const pushX = dx/dist * 3;
-                    const pushY = dy/dist * 3;
-                    
-                    // Apply push but prevent getting stuck in corners
-                    player.position[0] += pushX;
-                    player.position[1] += pushY;
-                    
-                    // If on mobile, make sure joystick still works after collision
-                    if (isMobile) {
-                        // Reset any extreme position changes
-                        player.lastValidPosition = player.lastValidPosition || [canvas.width/2, canvas.height/2];
-                        
-                        // If the player is pushed too far in a direction they're not controlling,
-                        // bring them back to a more reasonable position
-                        const maxUncontrolledPush = 10; // Maximum distance to push without player control
-                        
-                        if (Math.abs(pushX) > maxUncontrolledPush && Math.abs(mobileControls.x) < 0.2) {
-                            player.position[0] = player.position[0] - pushX + (pushX > 0 ? maxUncontrolledPush : -maxUncontrolledPush);
-                        }
-                        
-                        if (Math.abs(pushY) > maxUncontrolledPush && Math.abs(mobileControls.y) < 0.2) {
-                            player.position[1] = player.position[1] - pushY + (pushY > 0 ? maxUncontrolledPush : -maxUncontrolledPush);
-                        }
-                        
-                        // Save the current valid position
-                        player.lastValidPosition = [...player.position];
+                    // Move more in the direction with greater distance
+                    if (Math.abs(dx) > Math.abs(dy)) {
+                        // Push horizontally (x-direction)
+                        player.position[0] += (dx > 0) ? 5 : -5;
+                    } else {
+                        // Push vertically (y-direction)
+                        player.position[1] += (dy > 0) ? 5 : -5;
                     }
                 }
             }
@@ -452,6 +432,13 @@ function update() {
         // Use mobile joystick controls
         dx = mobileControls.x;
         dy = mobileControls.y;
+        
+        // Apply a slightly higher speed for mobile to overcome any resistance
+        if (dx !== 0 || dy !== 0) {
+            player.speed = difficultySettings[difficulty].playerSpeed * 1.2;
+        } else {
+            player.speed = difficultySettings[difficulty].playerSpeed;
+        }
     } else {
         // Use keyboard controls
         dx = (keysPressed['ArrowRight'] || keysPressed['d'] ? 1 : 0) -

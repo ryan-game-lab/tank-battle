@@ -21,16 +21,8 @@ class Player {
             this.rotation = Math.atan2(dy, dx) * 180 / Math.PI + 90; // +90 to orient properly
         }
 
-        // Store previous position before moving
-        this.previousPosition = [...this.position];
-
-        // Calculate new position
-        const newX = this.position[0] + dx * this.speed;
-        const newY = this.position[1] + dy * this.speed;
-        
-        // Apply movement
-        this.position[0] = newX;
-        this.position[1] = newY;
+        this.position[0] += dx * this.speed;
+        this.position[1] += dy * this.speed;
         
         // Keep player on screen
         this.position[0] = Math.max(this.width/2, Math.min(window.innerWidth - this.width/2, this.position[0]));

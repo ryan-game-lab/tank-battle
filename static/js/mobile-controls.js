@@ -140,9 +140,12 @@
         joystick.style.transform = `translate(calc(-50% + ${deltaX}px), calc(-50% + ${deltaY}px))`;
 
         // Calculate normalized direction (-1 to 1)
+        // Apply a minimum threshold to help overcome any wall resistance
+        const threshold = 0.15; // Minimum movement threshold
+        
         moveDirection = {
-            x: deltaX / radius,
-            y: deltaY / radius
+            x: Math.abs(deltaX / radius) < threshold ? 0 : deltaX / radius,
+            y: Math.abs(deltaY / radius) < threshold ? 0 : deltaY / radius
         };
 
         // Dispatch custom event
