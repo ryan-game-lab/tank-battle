@@ -1,0 +1,22 @@
+<svg width="14" height="20" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tank shell -->
+  <defs>
+    <linearGradient id="shellGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFCC00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Shell Body -->
+  <ellipse cx="7" cy="12" rx="5" ry="8" fill="url(#shellGradient)" stroke="#CC9900" stroke-width="1"/>
+  
+  <!-- Shell Tip -->
+  <path d="M2,12 Q7,2 12,12" fill="#FF9900" stroke="#CC9900" stroke-width="1"/>
+  
+  <!-- Shell Base -->
+  <rect x="2" y="14" width="10" height="5" fill="#CC9900" stroke="#996600" stroke-width="1"/>
+  <line x1="2" y1="16" x2="12" y2="16" stroke="#996600" stroke-width="1"/>
+  
+  <!-- Shell Highlight -->
+  <ellipse cx="5" cy="8" rx="1.5" ry="3" fill="#FFFFFF" opacity="0.5"/>
+</svg>

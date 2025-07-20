@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #1A2A1A; /* Darker military green background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevent scrollbars */
+    color: white;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8A9B56; /* Military green battlefield */
+    display: block;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: white;
+    z-index: 10;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 2px solid #44513A; /* Military border */
+    font-weight: bold;
+}
+
+.screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(40, 50, 40, 0.9); /* Military green tinted background */
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    z-index: 10;
+    min-width: 340px;
+    border: 3px solid #67735A; /* Military border */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+#level-selection {
+    color: white;
+}
+
+#level-selection h1 {
+    color: #DDCF55; /* Military yellow */
+    font-size: 36px;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#level-selection h2 {
+    color: #BBCCAA;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.level-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.level-btn, #try-again, #change-level {
+    background-color: #5A6A4A; /* Military button color */
+    border: 2px solid #44513A;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.level-btn:hover, #try-again:hover, #change-level:hover {
+    background-color: #44513A;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.level-btn:active, #try-again:active, #change-level:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#easy-btn {
+    background-color: #4B7339; /* Olive green */
+    border-color: #3A5929;
+}
+
+#medium-btn {
+    background-color: #9B8149; /* Tan */
+    border-color: #7A6539;
+}
+
+#hard-btn {
+    background-color: #8C4A39; /* Rust red */
+    border-color: #6B3929;
+}
+
+#game-over h2 {
+    color: #FF3333;
+    margin-top: 0;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+#game-over p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #DDCF55; /* Military yellow */
+}
+
+#try-again {
+    background-color: #4B7339; /* Olive green */
+    border-color: #3A5929;
+    margin-bottom: 10px;
+}
+
+#change-level {
+    background-color: #5A6A7A; /* Slate blue */
+    border-color: #44535A;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Add a military-style header bar */
+.header-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(40, 50, 40, 0.7);
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add military-style text shadows to all text */
+h1, h2, p, button {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}

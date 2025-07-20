@@ -1,0 +1,40 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base Tank Body -->
+  <rect x="8" y="15" width="24" height="22" fill="#666633" rx="3" ry="3" stroke="#444422" stroke-width="1"/>
+  
+  <!-- Tank Hull -->
+  <rect x="7" y="22" width="26" height="12" fill="#777744" rx="2" ry="2" stroke="#444422" stroke-width="1"/>
+  
+  <!-- Tank Turret Base -->
+  <circle cx="20" cy="22" r="8" fill="#555533" stroke="#444422" stroke-width="1"/>
+  
+  <!-- Tank Turret Top -->
+  <ellipse cx="20" cy="22" rx="6" ry="5" fill="#666633" stroke="#444422" stroke-width="1"/>
+  
+  <!-- Tank Treads -->
+  <rect x="5" y="23" width="3" height="14" fill="#333333" rx="1" ry="1"/>
+  <rect x="32" y="23" width="3" height="14" fill="#333333" rx="1" ry="1"/>
+  
+  <!-- Tread Details -->
+  <line x1="5" y1="25" x2="8" y2="25" stroke="#222222" stroke-width="1"/>
+  <line x1="5" y1="27" x2="8" y2="27" stroke="#222222" stroke-width="1"/>
+  <line x1="5" y1="29" x2="8" y2="29" stroke="#222222" stroke-width="1"/>
+  <line x1="5" y1="31" x2="8" y2="31" stroke="#222222" stroke-width="1"/>
+  <line x1="5" y1="33" x2="8" y2="33" stroke="#222222" stroke-width="1"/>
+  <line x1="5" y1="35" x2="8" y2="35" stroke="#222222" stroke-width="1"/>
+  
+  <line x1="32" y1="25" x2="35" y2="25" stroke="#222222" stroke-width="1"/>
+  <line x1="32" y1="27" x2="35" y2="27" stroke="#222222" stroke-width="1"/>
+  <line x1="32" y1="29" x2="35" y2="29" stroke="#222222" stroke-width="1"/>
+  <line x1="32" y1="31" x2="35" y2="31" stroke="#222222" stroke-width="1"/>
+  <line x1="32" y1="33" x2="35" y2="33" stroke="#222222" stroke-width="1"/>
+  <line x1="32" y1="35" x2="35" y2="35" stroke="#222222" stroke-width="1"/>
+  
+  <!-- Tank Details -->
+  <rect x="12" y="18" width="16" height="2" fill="#444422" rx="1" ry="1"/>
+  <circle cx="20" cy="22" r="2" fill="#444422"/>
+  
+  <!-- Enemy Markings (X Symbol) -->
+  <line x1="16" y1="13" x2="24" y2="17" stroke="#888888" stroke-width="1.5"/>
+  <line x1="24" y1="13" x2="16" y2="17" stroke="#888888" stroke-width="1.5"/>
+</svg>
